@@ -10,8 +10,6 @@
 
 
 
-
-
 author = np.array(tweet.get("user").get("name"));
 print("author")
 user = api.get_user('twitter')
