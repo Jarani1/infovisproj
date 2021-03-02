@@ -44,6 +44,56 @@ function focusPlusContext(data) {
     //<---------------------------------------------------------------------------------------------------->
 
 
+
+const searchbar = document.getElementById('searchbar')
+
+const listofmovies = document.getElementById('listofmovies')
+let movielist = [];
+
+searchbar.addEventListener('keyup', ("e") => {
+
+    const filteredCharacters = movielist.filter((movies) => {
+        return (
+            movies.name.includes(searchString) 
+           
+        );
+    });
+   showMovie(filteredCharacters);
+});
+
+
+const loadMovies = async () => {
+    try {
+        const res = await fetch('');
+        movielist = await res.json();
+        showMovie(movielist);
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+
+
+const showMovie = (movies) => {
+    const htmlString = movies
+        .map((movies) => {
+            return     
+            (movies.name.includes(searchString)    );
+        
+        })
+        .join('');
+    charactersList.innerHTML = htmlString;
+};
+
+loadMovies();
+
+
+
+
+
+
+
+
     var thisone = myFunction(4, 3);
     document.getElementById("demo").innerHTML = thisone;
 
