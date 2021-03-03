@@ -19,61 +19,45 @@
 </html
 -->
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>TNM048 Project, 2021</title>
-        <link rel="stylesheet" href="libs/css/index.css" />
-        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css" />
-       
-      </head>
 
-    <body> 
-        <div class="card text-center">
-            <div class="card-header">
-                <h2>Tweeter data cluster and visualization</h2>
-                <strong>project in TNM048 by Shahin Salehi and Gustav Dahmén <p id="demo"></p></strong>
-            </div>
-            <div class="card-body">
-              <img src="" alt="">
-                <div class="row">
-                    <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10">
-                        <div id="context"></div>
-                        <div id="scatterplot"></div>
-                        <div id="mapid"></div>
-                    </div>
-                    
-                    <div class="center">
-                      <a strong class="center" href="#movies">movies</a strong>
-                     <input 
-                     type="text" 
-                     placeholder="Search.."
-                     id = "searchbar"                     
-                     />
-                    </div>
-                    <script src="fpc.js"></script>
-                    <ul id="listofmovies" ></ul>
-                    <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2">
-                        <div class="text-center">
-                            <div class="active" id="tooltip">
-                                <br>
-                                <h5><a strong>Avaible movies</a strong></h5>
-                                <hr>
+<head>
+  <meta charset="utf-8">
+  <title>TNM048 Project, 2021</title>
+  <link rel="stylesheet" href="libs/css/index.css" />
+  <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css" />
 
-                                <nav>                                                
-                                  <ul class="choose movie" id="nav">
-                                                                                                            </li>
-                                      <li><a href="#">Avengers</a></li>
-                                      <li><a href="#">The Irishmen</a></li>
-                                      <li><a href="#">Harry Potter</a></li>
-                                      <li><a href="#">Deadpool</a></li>
-                                  </ul>
-                              </nav>                           
-                           </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
+</head>
+
+<body>
+  <div class="card text-center">
+    <div class="card-header">
+      <h2>Tweeter data cluster and visualization</h2>
+      <strong>project in TNM048 by Shahin Salehi and Gustav Dahmén <p id="demo"></p></strong>
+    </div>
+    <div class="center">
+      <a strong class="center" href="#movies"> movies</a strong>
+      <input type="text" placeholder="Search.." id="searchbar" />
+    </div>
+    <script src="fpc.js"></script>
+    <ul id="listofmovies"></ul>
+    <div class="text-center">
+      <div class="active" id="tooltip">
+        <br>
+        <h5><a strong>Avaible movies to search for:</a strong></h5>
+        <hr>
+        <nav>
+          <ul class="choose movie" id="center">
+            </li>
+            <li><a href="#">Avengers</a></li>
+            <li><a href="#">The Irishmen</a></li>
+            <li><a href="#">Harry Potter</a></li>
+            <li><a href="#">Deadpool</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</body>
 
  <!-- remove later -->
 
@@ -82,7 +66,6 @@
     <script type="text/javascript" src="libs/d3/d3.min.js"></script>
       <!-- our scripts -->
     <script src="js/color_info.js"></script>
-    <script src="js/plot_points.js"></script>
     <script src="js/fpc.js"></script>
     <script src="js/main.js"></script>
 

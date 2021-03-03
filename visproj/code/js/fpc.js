@@ -6,7 +6,7 @@
     Focus+Context file
  *
 */
-function focusPlusContext(data) {
+d3.csv("tweetdata.csv", type, function focusPlusContext(data) {
 
     // Creating margins and figure sizes
     var margin = { top: 20, right: 20, bottom: 150, left: 40 },
@@ -41,7 +41,7 @@ function focusPlusContext(data) {
         .attr("class", "context")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    //<---------------------------------------------------------------------------------------------------->
+    //<------------my idea on search function  take a look---------------------------------------------------------------------------------------->
 
 
 
@@ -52,13 +52,13 @@ let movielist = [];
 
 searchbar.addEventListener('keyup', ("e") => {
 
-    const filteredCharacters = movielist.filter((movies) => {
+    const filteredmovies = movielist.filter((movies) => {
         return (
-            movies.name.includes(searchString) 
+            movies.name.includes(searchbar) 
            
         );
     });
-   showMovie(filteredCharacters);
+   showMovie(filteredmovies);
 });
 
 
@@ -75,22 +75,17 @@ const loadMovies = async () => {
 
 
 const showMovie = (movies) => {
-    const htmlString = movies
-        .map((movies) => {
-            return     
-            (movies.name.includes(searchString)    );
-        
-        })
+        movielist.map((movies) => {
+            return movies.name.includes(searchbar);
+             })
         .join('');
-    charactersList.innerHTML = htmlString;
+    charactersList.innerHTML = movielist;
 };
 
 loadMovies();
 
 
-
-
-
+//<---------OLD------------------------------------------------------------------------------------------->
 
 
 
@@ -162,129 +157,12 @@ loadMovies();
 
      }
 
-    //<---------------------------------------------------------------------------------------------------->
-
-    /**
-    * 1. Rendering the context chart
     
 
-    //Append g tag for plotting the dots and axes
-    var dots = context.append("g");
-    dots.attr("clip-path", "url(#clip)");
-
-    /**
-    * Task 6 - Call the navigation axis on context.
-    /
-    context.append("g")
-        .attr("class", "axis axis--x")
-        .attr("transform", "translate(0," + height2 + ")")
-        .call(navXAxis)
-        //here..
-    /**
-     * Task 7 - Plot the small dots on the context graph.
-     /
-     // This function takes the features from the JSON file and prob gets the domain
-    small_points = dots.selectAll("dot")
-        //here...
-        .data(data.features)
-        .enter()
-        .append("circle")
-        .attr("class", "dotContext")
-        .filter(function (d) { return d.properties.EQ_PRIMARY != null })
-        .attr("cx", function (d) {
-            return navXScale(parseDate(d.properties. Date));
-        })
-        .attr("cy", function (d) {
-            return navYScale(d.properties.EQ_PRIMARY);
-        });
-
-     /**
-      * Task 8 - Call plot function.
-      * plot(points,nr,nr) try to use different numbers for the scaling.
-      */
-      // functions with uppercase names are constructors ->
-      // basically classes and you access their inner functions with dots.
-      plot = new Points()
-      plot.plot(small_points, 1, 3)
 
     //<---------------------------------------------------------------------------------------------------->
 
-    /**
-    * 2. Rendering the focus chart
-    /
-
-  
-
-
-    //Append g tag for plotting the dots and axes
-    var dots = focus.append("g");
-    dots.attr("clip-path", "url(#clip)");
-
-    /**
-     * Task 10 - Call x and y axis
-     /
-    focus.append("g")
-    //here..
-    //https://bl.ocks.org/bumbeishvili/6c54d3f0e202aa7004a669a768369c5d
-        .attr("class", "axis axis--x")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
-    focus.append("g")
-    //here..
-        .attr("class", "axis axis--y")
-        .call(yAxis);
-    //Add y axis label to the scatter plot
-    d3.select(".legend")
-        .style('left', "170px")
-        .style('top', '300px');
-    svg.append("text")
-        .attr('class', "axis-label")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 0)
-        .attr('x', -margin2.top - 120)
-        .attr('text-anchor', "end")
-        .attr('dy', ".75em")
-        .style("font-size", "20px")
-        .style("opacity", 0.4)
-       .text("Magnitude");
-
-    /**
-     * Task 11 - Plot the dots on the focus graph.
-     /
-     //same as task 7
-     //opacity??
-    selected_dots = dots.selectAll("dot")
-        //here..
-        .data(data.features)
-        .enter()
-        .append("circle")
-        .attr("class", "dot")
-        .filter(function (d) { return d.properties.EQ_PRIMARY != null })
-        .attr("cx", function (d) {
-            return xScale(parseDate(d.properties.Date));
-        })
-        .attr("cy", function (d) {
-            return yScale(d.properties.EQ_PRIMARY);
-        });
-
-    /**
-     * Task 12 - Call plot function
-     * plot(points,nr,nr) no need to send any integers!
-     
-     plot = new Points()
-     plot.plot(selected_dots)
-
-    //<---------------------------------------------------------------------------------------------------->
-
-    //Mouseover function
-    mouseOver(selected_dots);
-    //Mouseout function
-    mouseOut(selected_dots);
-
-    //Mouse over function
-    function mouseOver(selected_dots){
-        selected_dots
-        .on("mouseover",function(d){
+   
 
             /**
              * Task 13 - Update information in the "tooltip" by calling the tooltip function.
