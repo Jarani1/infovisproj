@@ -64,7 +64,7 @@ searchbar.addEventListener('keyup', ("e") => {
 
 const loadMovies = async () => {
     try {
-        const res = await fetch('');
+        const res = await fetch('Harry Potter');
         movielist = await res.json();
         showMovie(movielist);
     } catch (err) {
@@ -79,7 +79,7 @@ const showMovie = (movies) => {
             return movies.name.includes(searchbar);
              })
         .join('');
-    charactersList.innerHTML = movielist;
+    movielist.innerHTML = movielist;
 };
 
 loadMovies();
