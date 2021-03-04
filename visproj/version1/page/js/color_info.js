@@ -1,4 +1,4 @@
-/**
+9+/**
  *
     Author: Kahin Akram
     Date: Jan 24, 2020
@@ -9,11 +9,11 @@
 
 //We first have to create a dataset for the circules with some information
 var circleData = [
-    { "cx": 30, "cy": 30, "radius": 12, "color": "#4d4d4d", "text": "No Data available" },
-    { "cx": 30, "cy": 60, "radius": 12, "color": "#fef0d9", "text": "1-2 Deaths" },
-    { "cx": 30, "cy": 90, "radius": 12, "color": "#fdcc8a", "text": "3-11 Deaths" },
-    { "cx": 30, "cy": 120, "radius": 12, "color": "#fc8d59", "text": "12-100 Deaths" },
-    { "cx": 30, "cy": 150, "radius": 12, "color": "#d7301f", "text": ">100 Deaths" }
+    { "cx": 30, "cy": 30, "radius": 12, "color": "#4d4d4d", "text": "No correlation" },
+    { "cx": 30, "cy": 60, "radius": 12, "color": "#fef0d9", "text": "low correlation" },
+    { "cx": 30, "cy": 90, "radius": 12, "color": "#fdcc8a", "text": "medium correlation" },
+    { "cx": 30, "cy": 120, "radius": 12, "color": "#fc8d59", "text": "high correlation" },
+    { "cx": 30, "cy": 150, "radius": 12, "color": "#d7301f", "text": ">to much" }
 ];
 
 //Then get width and height of the parent

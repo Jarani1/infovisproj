@@ -15,7 +15,44 @@ function focusPlusContext(data) {
         height = 500 - margin.top - margin.bottom,
         height2 = 200 - margin2.top - margin2.bottom;
 
-    /**
+// my code try to fix searchbar
+
+    const searchbar = document.getElementById('searchbar')
+    const listofmovies = document.getElementById('listofmovies')
+    let movielist = [];
+
+    searchbar.addEventListener('keyup', ("e") => {
+
+        const filteredmovies = movielist.filter((movies) => {
+            return (
+                movies.name.includes(searchbar)
+
+            );
+        });
+        showMovie(filteredmovies);
+    });
+
+    const loadMovies = async () => {
+        try {
+            const res = await fetch('Harry Potter');
+            movielist = await res.json();
+            showMovie(movielist);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    const showMovie = (movies) => {
+        movielist.map((movies) => {
+            return movies.name.includes(searchbar);
+        })
+            .join('');
+        movielist.innerHTML = movielist;
+    };
+
+    loadMovies();
+
+    /**  OLD
      * Select Scatter plot div and append svg tag to it.
      * Set position to relative and width to 100% and an arbitrary height
      * Then add the clipping area with clipPath -
@@ -42,6 +79,25 @@ function focusPlusContext(data) {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     //<---------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     var thisone = myFunction(4, 3);
