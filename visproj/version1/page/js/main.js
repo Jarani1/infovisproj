@@ -18,3 +18,12 @@ d3.json("./data/ethqk.geojson", function (data) {
     focus_plus_context = new focusPlusContext(data);
 
 })
+
+var movies
+d3.csv("./data/uncut_gems1.csv", function (data) {
+
+ready_movie = new ready(data)
+ticked = new ticked()
+
+
+})

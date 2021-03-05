@@ -81,7 +81,47 @@ function focusPlusContext(data) {
     //<---------------------------------------------------------------------------------------------------->
 
 
+    (function()  {
 
+        var width = 1000;
+        var height = 1000;
+        
+        var svg = d3.select("#chart").append("svg")
+        .attr("postion", "relative")
+        .attr("width", "100%")
+        .attr("height", "100%");
+        
+        
+        d3.queue().defer(d3.csv, "./data/uncut_gems_0.csv").await(myData)
+        
+        function myData (error , datapoints) 
+        {
+        var circle = svg.selectAll(".words").data(datapoints)
+            .enter().append("circle")
+            .attr("class", "words")
+            .attr("r" , 20)
+            .attr("fill", "lightgreen")
+        }
+    
+        
+        var simulation = d3.forceSimulation() //force("name" , definetheforce)
+        
+        simulation.nodes(datapoints).on('tick', ticked)
+        
+        function ticked(){
+            circles
+            .attr("cx", function(d) {
+                return d.x
+                    })
+            .attr("cy", function(d) {
+                        return d.y
+                            })                  
+                        }               
+        
+        })
+        
+        
+        
 
 
 
